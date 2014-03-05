@@ -26,7 +26,8 @@
   <inceptionYear>2014</inceptionYear>
 
   <name>Jaydio</name>
-  <url>http://maven.apache.org</url>
+  <description>A Java library for tighter control of file I/O.</description>
+  <url>https://github.com/smacke/jaydio</url>
 
   <licenses>
     <license>
@@ -37,9 +38,61 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <id>smacke</id>
+      <name>Stephen Macke</name>
+      <email>smacke@cs.stanford.edu</email>
+      <url>http://smacke.net</url>
+      <roles>
+        <role>Owner</role>
+      </roles>
+      <timezone>-8</timezone>
+      <properties>
+        <picUrl>http://www.gravatar.com/avatar/57426781225d355bf6305dc79663c1b3.png</picUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/smacke/jaydio</connection>
+    <developerConnection>scm:git:git@github.com:smacke/jaydio.git</developerConnection>
+    <url>https://github.com/smacke/jaydio</url>
+  </scm>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
   
   <build>
     <plugins>
