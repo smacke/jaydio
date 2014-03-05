@@ -35,30 +35,30 @@ Example
 -------
 
 ```java
-    int bufferSize = 1<<23; // Use 8 MiB buffers
-    byte[] buf = new byte[bufferSize];
+int bufferSize = 1<<23; // Use 8 MiB buffers
+byte[] buf = new byte[bufferSize];
 
-    DirectRandomAccessFile fin = 
-            new DirectRandomAccessFile(new File("hello.txt"), "r", bufferSize);
+DirectRandomAccessFile fin = 
+        new DirectRandomAccessFile(new File("hello.txt"), "r", bufferSize);
 
-    DirectRandomAccessFile fout =
-            new DirectRandomAccessFile(new File("world.txt"), "rw", bufferSize);
+DirectRandomAccessFile fout =
+        new DirectRandomAccessFile(new File("world.txt"), "rw", bufferSize);
 
-    while (fin.getFilePointer() < fin.length()) {
-        int remaining = (int)Math.min(bufferSize, fin.length()-fin.getFilePointer());
-        fin.read(buf,0,remaining);
-        fout.write(buf,0,remaining);
-    }
+while (fin.getFilePointer() < fin.length()) {
+    int remaining = (int)Math.min(bufferSize, fin.length()-fin.getFilePointer());
+    fin.read(buf,0,remaining);
+    fout.write(buf,0,remaining);
+}
 
-    fin.close();
-    fout.close();
+fin.close();
+fout.close();
 ```
 
 
 FAQ
 ===
 
-### Does it work?
+#### Does it work?
 
 Here is a plot of memory use on my system during a copy of a 1.4 GB file, under
 different scenarios. The first scenario (red) corresponds to having plenty
@@ -82,7 +82,7 @@ Jaydio takes about 41 seconds to do the copy, RAM-limited `cp` takes
 about 40.5 seconds, and RAM-abundant `cp` takes about 26.8 seconds
 on my system, for a 1.4 GB file.
 
-### Why bypass file system cache? Isn't it there for a reason?
+#### Why bypass file system cache? Isn't it there for a reason?
 
 Yes, and in 99% of cases you will want to use it. As mentioned earlier,
 Jaydio serves as a starting point for implementing more advanced cache
@@ -91,7 +91,7 @@ to prevent the operating system from evicting certain memory pages in
 favor of caching files.
 
 
-### Can't I just use something like `DONTNEED` or `NOREUSE` with `posix_fadvise` or `madvise` if I'm worried about that page cache stomping over useful memory pages?
+#### Can't I just use something like `DONTNEED` or `NOREUSE` with `posix_fadvise` or `madvise` if I'm worried about that page cache stomping over useful memory pages?
 
 As far as I know, `NOREUSE` is a no-op.
 
@@ -103,7 +103,7 @@ of differing priorities regarding memory accesses.
 situation where this sort of strategy will not work.
 
 
-### I'm on Linux, but when I try to create a Jaydio `DirectRandomAccessFile` I get "Error opening file, got Invalid argument". What gives?
+#### I'm on Linux, but when I try to create a Jaydio `DirectRandomAccessFile` I get "Error opening file, got Invalid argument". What gives?
 
 This is the very uninformative libc error that you get when something goes
 wrong when opening a file. Chances are that your file system does not support
