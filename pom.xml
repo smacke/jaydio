@@ -3,7 +3,7 @@
 
   <groupId>net.smacke</groupId>
   <artifactId>jaydio</artifactId>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <inceptionYear>2014</inceptionYear>
 
