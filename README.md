@@ -41,7 +41,7 @@ with tracking down dependencies manually, the following are also available:
 [jaydio-0.1-jar-with-dependencies.jar](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar)
 
 [jaydio-0.1-jar-with-dependencies.jar.asc](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar.asc)
-(if you want to verify the jar against my public key)
+(if you want to verify the jar against my gpg public key)
 
 The API reference for Jaydio is located in the [javadoc](http://smacke.net/jaydio/javadoc/index.html).
 
