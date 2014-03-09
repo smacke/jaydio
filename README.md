@@ -13,6 +13,24 @@ Currently, it is useful for preventing the operating system from evicting
 memory pages which need to stay "warm" in favor of non-critical file pages.
 
 
+
+Adding Jaydio to Your Project
+-----------------------------
+
+[jaydio-0.1.jar](https://oss.sonatype.org/service/local/repositories/releases/content/net/smacke/jaydio/0.1/jaydio-0.1.jar)
+
+Jaydio has dependencies on [JNA](https://github.com/twall/jna) and log4j.
+If you add Jaydio to your project using Maven (groupId `net.smacke`,
+artifactId `jaydio`, version `0.1`), these will of course be handled
+automatically. Alternatively, if you don't want to deal with Maven or
+with tracking down dependencies manually, the following are also available:
+
+[jaydio-0.1-jar-with-dependencies.jar](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar)
+
+[jaydio-0.1-jar-with-dependencies.jar.asc](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar.asc)
+
+The API reference for Jaydio is located in the [javadoc](http://smacke.net/jaydio/javadoc/index.html).
+
 How it works
 ------------
 

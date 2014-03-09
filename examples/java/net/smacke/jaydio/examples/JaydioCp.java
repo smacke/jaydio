@@ -17,8 +17,6 @@ package net.smacke.jaydio.examples;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
 
 import net.smacke.jaydio.DirectRandomAccessFile;
 
