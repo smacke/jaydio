@@ -86,7 +86,7 @@ available (about 900 MB) when copying begins. The third scenario (green), we use
 copy (yay!), with buffers totaling about 36 MiB.
 For each scenario, completion of the copy is indicated by a vertical dotted line.
 
-![File copy comparison plot](http://smacke.net/img/jaydio-cp-plot.png)
+![File copy comparison plot](http://smacke.net/jaydio/img/jaydio-cp-plot.png)
 
 As you can see, Jaydio successfully bypasses the OS buffer cache,
 and uses no memory other than the small buffers allocated to it.
