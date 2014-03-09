@@ -161,3 +161,8 @@ Project" and point the root project directory to the Jaydio directory.
 
 Lastly, if you find some use for Jaydio, one excellent way to contribute is to
 shoot me an email describing what you're doing -- I'd love to hear about it!
+
+License
+=======
+
+This library is released under the Apache Software License, version 2.0.
