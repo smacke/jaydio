@@ -145,3 +145,20 @@ directory using a file system like ecryptfs, you can't use direct I/O there.
 
 Contributing
 ============
+
+Any contribution, whether it be a bug report or new core functionality,
+is welcome. Please feel free to fork and send pull requests! That being
+said, contributions which include unit tests are preferred.
+
+Once you have cloned the source, one of the easier ways to get set up
+is with eclipse, especially if you have the `m2eclipse` plugin. Just go
+to "File -> New -> Project -> Maven Project" and point the root directory to wherever
+you cloned Jaydio.
+
+If you don't have `m2eclipse`, you can still set things
+up easily if you run `mvn eclipse:eclipse` wherever you cloned Jaydio to set up
+`.project` and `.classpath` files for eclipse. From eclipse, then do
+"File -> New -> Java Project" and point the root project directory to the Jaydio directory.
+
+Lastly, if you find some use for Jaydio, one excellent way to contribute is
+to shoot me an email describing what you're doing -- I'd love to hear about it!
