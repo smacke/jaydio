@@ -20,9 +20,22 @@ Adding Jaydio to Your Project
 [jaydio-0.1.jar](https://oss.sonatype.org/service/local/repositories/releases/content/net/smacke/jaydio/0.1/jaydio-0.1.jar)
 
 Jaydio has dependencies on [JNA](https://github.com/twall/jna) and log4j.
-If you add Jaydio to your project using Maven (groupId `net.smacke`,
-artifactId `jaydio`, version `0.1`), these will of course be handled
-automatically. Alternatively, if you don't want to deal with Maven or
+
+If you use Maven, you can add the following to your `pom.xml`:
+
+```xml
+<dependencies>
+  ... <!-- dots indicate other dependencies you may have -->
+  <dependency>
+    <groupId>net.smacke</groupId>
+    <artifactId>jaydio</artifactId>
+    <version>0.1</version>
+  </dependency>
+  ...
+</dependencies>
+```
+
+Alternatively, if you don't want to deal with Maven or
 with tracking down dependencies manually, the following are also available:
 
 [jaydio-0.1-jar-with-dependencies.jar](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar)
