@@ -57,7 +57,7 @@ public class DirectIoLib {
                 final int minorRev = 2;
 
                 List<Integer> versionNumbers = new ArrayList<Integer>();
-                for (String v : System.getProperty("os.version").split("\\.|-")) {
+                for (String v : System.getProperty("os.version").split("[.\\-]")) {
                     if (v.matches("\\d")) {
                         versionNumbers.add(Integer.parseInt(v));
                     }
