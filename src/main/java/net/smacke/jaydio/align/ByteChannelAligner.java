@@ -62,6 +62,9 @@ public abstract class ByteChannelAligner <T extends JaydioByteBuffer> implements
     	this.channel = channel;
     	this.isOpen = true;
     	this.fileLength = channel.size();
+    	if (this.fileLength == 0) {
+    		this.fileLength = Long.MAX_VALUE;
+		}
     	dirty = new boolean[buffer.capacity() / lib.blockSize()];
     	Arrays.fill(dirty, false);
     	globalDirty = false;
