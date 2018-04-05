@@ -126,7 +126,7 @@ public class DirectIoLib {
      * 		  A file or directory within which O_DIRECT access will be performed.
      */
     private static int initilizeSoftBlockSize(String fileOrDir) {
-        
+        logger.debug("DirectIoLib.initilizeSoftBlockSize(String path) called for path: " + fileOrDir);
         int fsBlockSize = -1;
 
         if (binit) {
@@ -160,6 +160,7 @@ public class DirectIoLib {
             }
         }
 
+        logger.debug("DirectIoLib.initilizeSoftBlockSize(String path) determined block size to be: " + fsBlockSize);
         return fsBlockSize;
     }
 

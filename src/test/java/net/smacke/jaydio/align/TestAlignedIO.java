@@ -15,19 +15,18 @@
  */
 package net.smacke.jaydio.align;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Random;
-
 import net.smacke.jaydio.DirectIoLib;
 import net.smacke.jaydio.buffer.JavaHeapByteBuffer;
 import net.smacke.jaydio.buffer.JaydioByteBuffer;
 import net.smacke.jaydio.channel.BufferedChannel;
 import net.smacke.jaydio.channel.MockByteChannel;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Random;
 
 
 /**
@@ -40,7 +39,6 @@ import org.junit.Test;
  *
  */
 public class TestAlignedIO extends Assert {
-
     private int smallWriteSize;
     private int seekTrials;
     private long randomSeed;
