@@ -60,15 +60,31 @@
   <build>
     <plugins>
       <plugin>
-      <!-- so that projects configured with m2eclipse don't get sad with @Override -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.1</version>
+        <version>3.6.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <finalName>${artifactId}-${version}-with-deps</finalName>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
   
@@ -82,7 +98,7 @@
     <dependency>
     	<groupId>net.java.dev.jna</groupId>
     	<artifactId>jna</artifactId>
-    	<version>4.0.0</version>
+    	<version>4.5.1</version>
     </dependency>
     <dependency>
     	<groupId>log4j</groupId>
