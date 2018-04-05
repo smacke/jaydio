@@ -48,6 +48,8 @@ public final class DirectIoByteChannel implements BufferedChannel<AlignedDirectB
 
     public static DirectIoByteChannel getChannel(File file, boolean readOnly) throws IOException {
     	DirectIoLib lib = DirectIoLib.getLibForPath(file.toString());
+    	if (lib == null)
+    	    throw new IllegalStateException("Could not get lib for path (DirectIoLib.getLibForPath(...)): " + file.toString());
     	return getChannel(lib, file, readOnly);
     }
 
