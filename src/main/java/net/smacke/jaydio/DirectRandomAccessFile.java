@@ -83,9 +83,9 @@ public class DirectRandomAccessFile implements DataInput, DataOutput, Closeable 
 			throw new IllegalArgumentException("only r and rw modes supported");
 		}
 		
-		if (readOnly && !file.isFile()) {
-			throw new FileNotFoundException("couldn't find file " + file);
-		}
+//		if (readOnly && !file.isFile()) {
+//			throw new FileNotFoundException("couldn't find file " + file);
+//		}
 		
 		this.channel = bufferSize!=-1 ? 
 				DirectIoByteChannelAligner.open(file, bufferSize, readOnly) :
