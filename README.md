@@ -17,7 +17,7 @@ Adding Jaydio to Your Project
 
 [jaydio-0.1.jar](https://oss.sonatype.org/service/local/repositories/releases/content/net/smacke/jaydio/0.1/jaydio-0.1.jar)
 
-Jaydio has dependencies on [JNA](https://github.com/twall/jna) and log4j.
+Jaydio has dependencies on [JNA](https://github.com/twall/jna) and [SLF4J](http://www.slf4j.org/).
 
 If you use Maven, you can add the following to your `pom.xml`:
 
