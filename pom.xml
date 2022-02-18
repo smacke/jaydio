@@ -93,13 +93,13 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
     	<groupId>net.java.dev.jna</groupId>
     	<artifactId>jna</artifactId>
-    	<version>4.5.1</version>
+    	<version>5.10.0</version>
     </dependency>
     <dependency>
     	<groupId>log4j</groupId>
