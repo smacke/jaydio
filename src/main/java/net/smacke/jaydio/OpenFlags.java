@@ -28,24 +28,24 @@ import java.nio.charset.StandardCharsets;
  *
  */
 public final class OpenFlags {
-    public static final int O_RDONLY = getOpenFlags("O_RDONLY");
-    public static final int O_WRONLY = getOpenFlags("O_WRONLY");
-    public static final int O_RDWR = getOpenFlags("O_RDWR");
-    public static final int O_CREAT = getOpenFlags("O_CREAT");
-    public static final int O_TRUNC = getOpenFlags("O_TRUNC");
-    public static final int O_DIRECT = getOpenFlags("O_DIRECT");
-    public static final int O_SYNC = getOpenFlags("O_SYNC");
+    public static final int O_RDONLY = getOpenFlags("O_RDONLY", 00);
+    public static final int O_WRONLY = getOpenFlags("O_WRONLY", 01);
+    public static final int O_RDWR = getOpenFlags("O_RDWR", 02);
+    public static final int O_CREAT = getOpenFlags("O_CREAT", 0100);
+    public static final int O_TRUNC = getOpenFlags("O_TRUNC", 01000);
+    public static final int O_DIRECT = getOpenFlags("O_DIRECT", 040000);
+    public static final int O_SYNC = getOpenFlags("O_SYNC", 04000000);
 
     private OpenFlags() {}
 
-    private static int getOpenFlags(String s) {
+    private static int getOpenFlags(String s, int defaultValue) {
         try {
             Process pb = new ProcessBuilder("/bin/sh", "-c", "printf \"%d\" $(printf '#include<fcntl.h>\\n" + s + "' | gcc -D_GNU_SOURCE -E - | tail -n1)").start();
             try (BufferedReader br = new BufferedReader(new InputStreamReader(pb.getInputStream(), StandardCharsets.UTF_8))) {
                 return Integer.parseInt(br.readLine());
             }
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
+        } catch (Exception e) {
+            return defaultValue;
         }
     }
 
