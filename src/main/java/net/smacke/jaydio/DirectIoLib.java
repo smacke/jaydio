@@ -22,7 +22,8 @@ import java.util.List;
 
 import net.smacke.jaydio.buffer.AlignedDirectByteBuffer;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sun.jna.Native;
 import com.sun.jna.NativeLong;
@@ -42,7 +43,7 @@ import com.sun.jna.ptr.PointerByReference;
  *
  */
 public class DirectIoLib {
-    private static final Logger logger = Logger.getLogger(DirectIoLib.class);
+    private static final Logger logger = LoggerFactory.getLogger(DirectIoLib.class);
     private static boolean binit;
     
     static {

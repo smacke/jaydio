@@ -7,9 +7,7 @@ not only for files but to get direct access to raw disk.
 
 
 Jaydio is a Java library for giving the programmer finer control over file I/O,
-in part by bypassing the OS buffer cache. **Currently only Linux is
-supported**, but Jaydio has big dreams of expanding to other platforms and
-adding new functionality other than the vanilla direct I/O currently offered.
+in part by bypassing the OS buffer cache. **For now, only Linux is supported**.
 Jaydio serves as as a starting point for asynchronous / non-blocking direct
 I/O, custom file page caching layers, and even advanced cache replacement
 policies like [ARC](http://dbs.uni-leipzig.de/file/ARC.pdf) or
@@ -24,7 +22,7 @@ Adding Jaydio to Your Project
 
 [jaydio-0.1.jar](https://oss.sonatype.org/service/local/repositories/releases/content/net/smacke/jaydio/0.1/jaydio-0.1.jar)
 
-Jaydio has dependencies on [JNA](https://github.com/twall/jna) and log4j.
+Jaydio has dependencies on [JNA](https://github.com/twall/jna) and [SLF4J](http://www.slf4j.org/).
 
 Maven dependency
 
