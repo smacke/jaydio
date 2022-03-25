@@ -16,9 +16,10 @@
 package net.smacke.jaydio;
 
 import net.smacke.jaydio.align.DirectIoByteChannelAligner;
-import org.apache.log4j.Logger;
 
 import java.io.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to emulate the behavior of {@link RandomAccessFile}, but using direct I/O.
@@ -27,7 +28,7 @@ import java.io.*;
  */
 public class DirectRandomAccessFile implements DataInput, DataOutput, Closeable {
 
-	private static final Logger logger = Logger.getLogger(DirectRandomAccessFile.class);
+	private static final Logger logger = LoggerFactory.getLogger(DirectRandomAccessFile.class);
 
 	// "\uFEFF" doesn't seem to work for some reason... hacky workaround
 	private static final String UTF8_BOM = Character.toString((char)0xEF) +
