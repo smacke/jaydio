@@ -35,6 +35,8 @@ public class DirectIoByteChannelAligner extends ByteChannelAligner<AlignedDirect
 
     public static DirectIoByteChannelAligner open(File path) throws IOException {
     	DirectIoLib lib = DirectIoLib.getLibForPath(path.toString());
+        if (lib == null)
+            throw new IllegalStateException("Could not get lib for path (DirectIoLib.getLibForPath(...)): " + path.toString());
         return open(lib, path, lib.defaultBufferSize(), false);
     }
     
@@ -45,6 +47,8 @@ public class DirectIoByteChannelAligner extends ByteChannelAligner<AlignedDirect
     
     public static DirectIoByteChannelAligner open(File path, boolean readOnly) throws IOException {
     	DirectIoLib lib = DirectIoLib.getLibForPath(path.toString());
+        if (lib == null)
+            throw new IllegalStateException("Could not get lib for path (DirectIoLib.getLibForPath(...)): " + path.toString());
         return open(lib, path, lib.defaultBufferSize(), readOnly);
     }
     

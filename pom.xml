@@ -3,7 +3,7 @@
 
   <groupId>net.smacke</groupId>
   <artifactId>jaydio</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <version>0.2.4</version>
   <packaging>jar</packaging>
   <inceptionYear>2014</inceptionYear>
 
@@ -60,15 +60,32 @@
   <build>
     <plugins>
       <plugin>
-      <!-- so that projects configured with m2eclipse don't get sad with @Override -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.1</version>
+        <version>3.6.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <finalName>${artifactId}-${version}-with-deps</finalName>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
   
@@ -76,13 +93,13 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.1</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
     	<groupId>net.java.dev.jna</groupId>
     	<artifactId>jna</artifactId>
-    	<version>4.0.0</version>
+    	<version>5.10.0</version>
     </dependency>
     <dependency>
     	<groupId>org.slf4j</groupId>

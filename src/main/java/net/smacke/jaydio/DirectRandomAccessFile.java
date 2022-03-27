@@ -15,16 +15,11 @@
  */
 package net.smacke.jaydio;
 
-import java.io.Closeable;
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-
 import net.smacke.jaydio.align.DirectIoByteChannelAligner;
+
+import java.io.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class to emulate the behavior of {@link RandomAccessFile}, but using direct I/O.
@@ -32,7 +27,9 @@ import net.smacke.jaydio.align.DirectIoByteChannelAligner;
  *
  */
 public class DirectRandomAccessFile implements DataInput, DataOutput, Closeable {
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(DirectRandomAccessFile.class);
+
 	// "\uFEFF" doesn't seem to work for some reason... hacky workaround
 	private static final String UTF8_BOM = Character.toString((char)0xEF) +
 			Character.toString((char)0xBB) +
@@ -75,7 +72,9 @@ public class DirectRandomAccessFile implements DataInput, DataOutput, Closeable 
 	 */
 	public DirectRandomAccessFile(File file, String mode, int bufferSize)
 		throws IOException {
-		
+
+		logger.debug("DirectRandomAccessFile ctor called with bufferSize=" + bufferSize);
+
 		boolean readOnly = false;
 		if (mode.equals("r")) {
 			readOnly = true;
@@ -83,9 +82,9 @@ public class DirectRandomAccessFile implements DataInput, DataOutput, Closeable 
 			throw new IllegalArgumentException("only r and rw modes supported");
 		}
 		
-		if (readOnly && !file.isFile()) {
-			throw new FileNotFoundException("couldn't find file " + file);
-		}
+//		if (readOnly && !file.isFile()) {
+//			throw new FileNotFoundException("couldn't find file " + file);
+//		}
 		
 		this.channel = bufferSize!=-1 ? 
 				DirectIoByteChannelAligner.open(file, bufferSize, readOnly) :

@@ -1,5 +1,10 @@
-Java Direct I/O (Jaydio)
-========================
+This fork contains a few changes from the original allowing it to be used 
+not only for files but to get direct access to raw disk.
+
+**IMPORTANT:** use an empty separate physical disk for experiments.
+
+# Java Direct I/O (Jaydio)
+
 
 Jaydio is a Java library for giving the programmer finer control over file I/O,
 in part by bypassing the OS buffer cache. **For now, only Linux is supported**.
@@ -19,27 +24,15 @@ Adding Jaydio to Your Project
 
 Jaydio has dependencies on [JNA](https://github.com/twall/jna) and [SLF4J](http://www.slf4j.org/).
 
-If you use Maven, you can add the following to your `pom.xml`:
+Maven dependency
 
 ```xml
-<dependencies>
-  ... <!-- dots indicate other dependencies you may have -->
   <dependency>
     <groupId>net.smacke</groupId>
     <artifactId>jaydio</artifactId>
     <version>0.1</version>
   </dependency>
-  ...
-</dependencies>
 ```
-
-Alternatively, if you don't want to deal with Maven or with tracking down
-dependencies manually, the following are also available:
-
-[jaydio-0.1-jar-with-dependencies.jar](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar)
-
-[jaydio-0.1-jar-with-dependencies.jar.asc](http://smacke.net/jaydio/jaydio-0.1-jar-with-dependencies.jar.asc)
-(if you want to verify the jar against my gpg public key)
 
 The API reference for Jaydio is located in the
 [javadoc](http://smacke.net/jaydio/javadoc/index.html).
