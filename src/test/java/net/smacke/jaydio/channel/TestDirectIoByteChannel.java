@@ -18,6 +18,7 @@ package net.smacke.jaydio.channel;
 import java.io.File;
 import java.io.IOException;
 import java.nio.channels.NonWritableChannelException;
+import java.nio.file.Files;
 import java.util.Arrays;
 
 import net.smacke.jaydio.DirectIoLib;
@@ -43,12 +44,7 @@ public class TestDirectIoByteChannel extends BufferedChannelAbstractTester<Align
     private static DirectIoLib lib;
     
     private static File getTempDirectory(String prefix, String suffix) throws IOException {
-        File temp = File.createTempFile(prefix, suffix);
-        if(!(temp.delete())) {
-            throw new IOException("Could not delete temp file: " + temp.getAbsolutePath());
-        } else if (!temp.mkdir()) {
-            throw new IOException("could not create temporary directory");
-        }
+        File temp = Files.createTempDirectory(prefix + suffix).toFile();
         return temp;
     }
 

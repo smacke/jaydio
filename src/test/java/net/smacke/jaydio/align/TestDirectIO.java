@@ -18,6 +18,7 @@ package net.smacke.jaydio.align;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -63,12 +64,7 @@ public class TestDirectIO extends Assert {
     }
 
     private static File getTempDirectory(String prefix, String suffix) throws IOException {
-        File temp = File.createTempFile(prefix, suffix);
-        if(!(temp.delete())) {
-            throw new IOException("Could not delete temp file: " + temp.getAbsolutePath());
-        } else if (!temp.mkdir()) {
-            throw new IOException("could not create temporary directory");
-        }
+        File temp = Files.createTempDirectory(prefix + suffix).toFile();
         return temp;
     }
 
